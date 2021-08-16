@@ -2,6 +2,7 @@ import React from "react";
 import "./Register.css";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import Axios from "axios";
 
 //import materials ui icon
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
@@ -26,6 +27,20 @@ const Register = () => {
   let history = useHistory();
 
   const [registerData, setRegisterData] = useState(REGISTER_DATA_DEFAULT);
+
+  const CreateUser = () => {
+    Axios.post("http://localhost:3002/user/", {
+      firstName: registerData.FirstName,
+      lastName: registerData.LastName,
+      email: registerData.Email,
+      username: registerData.Username,
+      password: registerData.Password,
+      age: registerData.Age,
+      gender: registerData.Gender,
+    }).then(() => {
+      history.push("/login");
+    });
+  };
 
   return (
     <div className="registerContainer">
@@ -198,7 +213,9 @@ const Register = () => {
             </label>
           </div>
 
-          <button className="registerButton">Submit</button>
+          <button className="registerButton" onClick={CreateUser}>
+            Submit
+          </button>
         </div>
       </div>
     </div>
