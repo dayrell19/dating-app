@@ -21,11 +21,30 @@
 .formContainer {
   display: flex;
   flex-direction: column;
-  height: 700px;
+  height: 750px;
   width: 500px;
   border-radius: 15px;
   background-color: var(--datingApp-lightBlack);
   padding: 3px;
+}
+
+.registerBackButton {
+  display: flex;
+  flex: 10%;
+  color: var(--datingApp-white);
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.registerBackButton:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+}
+
+.formInputs {
+  display: flex;
+  flex-direction: column;
+  flex: 90%;
 }
 
 .registerHeader {

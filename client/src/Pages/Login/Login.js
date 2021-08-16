@@ -7,7 +7,7 @@ const Login = () => {
       <div className="loginContainerTop">
         <div className="loginContainerLeft"></div>
         <div className="loginContainerRight">
-          <div className="inputsContainer">Hello</div>
+          <div className="inputsContainer">LOGIN PAGE</div>
         </div>
       </div>
       <div className="loginContainerBottom"></div>
