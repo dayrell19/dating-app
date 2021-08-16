@@ -20,7 +20,8 @@ const Login = () => {
       username: loginData.Username,
       password: loginData.Password,
     })
-      .then(() => {
+      .then((response) => {
+        localStorage.setItem("access-token", response.data.token);
         history.push("/mainpage");
       })
       .catch((error) => {
