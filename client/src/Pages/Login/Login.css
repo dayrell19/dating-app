@@ -123,6 +123,12 @@
   width: 80%;
 }
 
+.errorMessage {
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  color: var(--datingApp-red);
+  font-size: 12px;
+}
+
 .loginButton {
   display: flex;
   position: relative;

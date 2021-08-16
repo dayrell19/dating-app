@@ -69,6 +69,7 @@ const Register = () => {
                   FirstName: event.target.value,
                 }));
               }}
+              onKeyDown={(event) => event.key === "Enter" && CreateUser()}
             />
             <label className="registerLabel">First Name</label>
           </div>
@@ -87,6 +88,7 @@ const Register = () => {
                   LastName: event.target.value,
                 }));
               }}
+              onKeyDown={(event) => event.key === "Enter" && CreateUser()}
             />
             <label className="registerLabel">Last Name</label>
           </div>
@@ -105,6 +107,7 @@ const Register = () => {
                   Email: event.target.value,
                 }));
               }}
+              onKeyDown={(event) => event.key === "Enter" && CreateUser()}
             />
             <label className="registerLabel">Email</label>
           </div>
@@ -123,6 +126,7 @@ const Register = () => {
                   Username: event.target.value,
                 }));
               }}
+              onKeyDown={(event) => event.key === "Enter" && CreateUser()}
             />
             <label className="registerLabel">Username</label>
           </div>
@@ -141,6 +145,7 @@ const Register = () => {
                   Password: event.target.value,
                 }));
               }}
+              onKeyDown={(event) => event.key === "Enter" && CreateUser()}
             />
             <label className="registerLabel">Password</label>
           </div>
@@ -159,6 +164,7 @@ const Register = () => {
                   Age: event.target.value,
                 }));
               }}
+              onKeyDown={(event) => event.key === "Enter" && CreateUser()}
             />
             <label className="registerLabel">Age</label>
           </div>
