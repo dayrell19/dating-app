@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --datingApp-white: #fff;
+  --datingApp-black: #080707;
+  --datingApp-lightBlack: #0d0c0c;
+  --datingApp-lightgray: #c7c7c7;
+  --datingApp-red: #f40303;
+}
+
+.registerContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--datingApp-lightgray);
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  width: 500px;
+  border-radius: 15px;
+  background-color: var(--datingApp-lightBlack);
+  padding: 3px;
+}
+
+.registerHeader {
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  color: var(--datingApp-white);
+  align-self: center;
+  font-size: 38px;
+}
+
+.registerInput {
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid var(--datingApp-white);
+  outline: 0;
+  font-size: 1.3rem;
+  color: var(--datingApp-white);
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.registerInput::placeholder {
+  color: transparent;
+}
+.registerInput:placeholder-shown ~ .registerLabel {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.registerLabel {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--datingApp-white);
+}
+
+.registerInput:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #8e0c0c, #f40303);
+  border-image-slice: 1;
+}
+.registerInput:focus ~ .registerLabel {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--datingApp-red);
+  font-weight: 700;
+}
+
+/* reset input */
+.registerInput:required,
+.registerInput:invalid {
+  box-shadow: none;
+}
+
+.individualRegisterInput {
+  position: relative;
+  padding: 15px 0 0;
+  margin: 10px;
+}
+
+.genderRegisterInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  padding: 15px 0 0;
+  margin: 10px;
+}
+
+.genderLabel {
+  padding: 6px;
+  border-radius: 50px;
+  display: inline-flex;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin: 8px 0;
+  -webkit-tap-highlight-color: transparent;
+  color: var(--datingApp-white);
+  font-family: "Encode Sans Sc", sans-serif;
+}
+
+.genderLabel:hover,
+.genderLabel:focus-within {
+  background: rgba(159, 159, 159, 0.1);
+}
+
+.genderLabel input {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: none;
+  border: 0;
+  box-shadow: inset 0 0 0 1px #9f9f9f;
+  box-shadow: inset 0 0 0 1.5px #9f9f9f;
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  transition: box-shadow 150ms cubic-bezier(0.95, 0.15, 0.5, 1.25);
+  pointer-events: none;
+}
+.genderLabel input:focus {
+  outline: none;
+}
+.genderLabel input:checked {
+  box-shadow: inset 0 0 0 6px var(--datingApp-red);
+}
+.genderLabel span {
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 20px;
+  padding: 0 8px;
+}
+
+.registerButton {
+  display: flex;
+  position: relative;
+  width: 50%;
+  align-self: center;
+  left: 25%;
+  margin-top: 20px;
+  transform: translate(-50%, -50%);
+  color: var(--datingApp-white);
+  text-decoration: none;
+  font-size: 1em;
+  display: inline-block;
+  background-color: var(--datingApp-lightBlack);
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  padding: 0.5em 2em;
+  border: 2px solid var(--datingApp-red);
+  transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.registerButton::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: var(--datingApp-red);
+  transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+  z-index: -1;
+}
+.registerButton::after {
+  content: "";
+  display: inline-block;
+  background-image: url("https://image.flaticon.com/icons/png/128/109/109617.png");
+  position: absolute;
+  top: 0;
+  left: calc(100% - 3em);
+  right: 3em;
+  bottom: 0;
+  background-size: 1.5em;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.registerButton:hover {
+  padding: 0.5em 3.5em 0.5em 0.5em;
+}
+.registerButton:hover::before {
+  left: calc(100% - 3em);
+  right: 0;
+  transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.registerButton:hover::after {
+  right: 0;
+  transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
