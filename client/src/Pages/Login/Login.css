@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=WindSong&display=swap");
+
 .loginContainer {
   display: flex;
   flex-direction: column;
@@ -8,10 +11,21 @@
   flex: 85%;
   display: flex;
   flex-direction: row;
+  background-color: var(--datingApp-lightgray);
 }
 
 .loginContainerLeft {
   flex: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftHeader {
+  font-family: "WindSong", cursive;
+  font-size: 80px;
+  color: var(--datingApp-red);
 }
 
 .loginContainerRight {
@@ -23,10 +37,172 @@
 }
 
 .inputsContainer {
+  display: flex;
+  flex-direction: column;
   width: 400px;
   height: 500px;
+  background-color: var(--datingApp-lightBlack);
+  border-radius: 12px;
+  align-items: center;
+}
+
+.loginHeader {
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  color: var(--datingApp-white);
+  font-size: 38px;
+  margin-bottom: 4px;
+}
+
+.loginSubheader {
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  color: var(--datingApp-white);
+  font-size: 26px;
+  margin-top: 0px;
+}
+
+.loginInput {
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid var(--datingApp-white);
+  outline: 0;
+  font-size: 1.3rem;
+  color: var(--datingApp-white);
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.loginInput::placeholder {
+  color: transparent;
+}
+.loginInput:placeholder-shown ~ .loginLabel {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.loginLabel {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--datingApp-white);
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+}
+
+.loginInput:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #8e0c0c, #f40303);
+  border-image-slice: 1;
+}
+.loginInput:focus ~ .loginLabel {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--datingApp-red);
+  font-weight: 700;
+}
+
+/* reset input */
+.loginInput:required,
+.loginInput:invalid {
+  box-shadow: none;
+}
+
+.individualLoginInput {
+  position: relative;
+  padding: 15px 0 0;
+  margin: 10px;
+  margin-bottom: 25px;
+  width: 80%;
+}
+
+.loginButton {
+  display: flex;
+  position: relative;
+  width: 50%;
+  align-self: center;
+  left: 25%;
+  margin-top: 40px;
+  transform: translate(-50%, -50%);
+  color: var(--datingApp-white);
+  text-decoration: none;
+  font-size: 1em;
+  display: inline-block;
+  background-color: var(--datingApp-lightBlack);
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  padding: 0.5em 2em;
+  border: 2px solid var(--datingApp-red);
+  transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.loginButton::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: var(--datingApp-red);
+  transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+  z-index: -1;
+}
+.loginButton::after {
+  content: "";
+  display: inline-block;
+  background-image: url("https://image.flaticon.com/icons/png/128/109/109617.png");
+  position: absolute;
+  top: 0;
+  left: calc(100% - 3em);
+  right: 3em;
+  bottom: 0;
+  background-size: 1.5em;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.loginButton:hover {
+  padding: 0.5em 3.5em 0.5em 0.5em;
+}
+.loginButton:hover::before {
+  left: calc(100% - 3em);
+  right: 0;
+  transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1),
+    left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.loginButton:hover::after {
+  right: 0;
+  transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+.registerLink {
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  color: var(--datingApp-white);
+  font-size: 12px;
+}
+
+.registerLink:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
 }
 
 .loginContainerBottom {
+  display: flex;
+  justify-content: center;
   flex: 15%;
+  background-color: var(--datingApp-lightBlack);
+}
+
+.bottomHeader {
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  color: var(--datingApp-white);
+  font-size: 45px;
 }
