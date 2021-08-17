@@ -17,6 +17,7 @@ const validateToken = (req, res, next) => {
     const validToken = verify(accessToken, "JWTSECRET");
     if (validToken) {
       req.authenticated = true;
+      req.user = validToken;
       return next();
     }
   } catch (err) {

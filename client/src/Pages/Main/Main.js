@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import "./Main.css";
+import Axios from "axios";
 
 //Import Components
 import Navbar from "../../Components/Navbar/Navbar";
-import Axios from "axios";
 
 const Main = () => {
   useEffect(() => {

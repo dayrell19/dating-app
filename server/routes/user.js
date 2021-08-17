@@ -43,8 +43,10 @@ router.post("/login", async (req, res) => {
   });
 });
 
-router.get("/profile", validateToken, (req, res) => {
-  res.json("EAE");
+router.get("/profile", validateToken, async (req, res) => {
+  const user = await users.findOne({ where: { username: req.user.username } });
+
+  res.json(user);
 });
 
 module.exports = router;
