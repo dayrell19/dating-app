@@ -4,7 +4,7 @@ const router = express.Router();
 const { users } = require("../models");
 
 const bcrypt = require("bcrypt");
-const { createTokens } = require("../auth/jwt");
+const { createTokens, validateToken } = require("../auth/jwt");
 
 router.post("/", (req, res) => {
   const user = req.body;
@@ -41,6 +41,10 @@ router.post("/login", async (req, res) => {
       res.json({ token: accessToken });
     }
   });
+});
+
+router.get("/profile", validateToken, (req, res) => {
+  res.json("EAE");
 });
 
 module.exports = router;
