@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+  background-color: var(--datingApp-lightgray);
+}
+
+.profileDataContainer {
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+  width: 500px;
+  background-color: var(--datingApp-white);
+  border-radius: 12px;
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+}
+
+.profileHeader {
+  font-size: 38px;
+  color: var(--datingApp-lightBlack);
+  align-self: center;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  padding-left: 25px;
+  height: 40px;
+}
+
+.profileLabel {
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.profileData {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.passwordContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 25px;
+  height: 40px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.passwordLeft {
+  flex: 70%;
+  display: flex;
+  flex-direction: row;
+}
+
+.passwordRight {
+  flex: 30%;
+  display: flex;
+  margin-right: 15px;
+}
+
+.changePasswordButton {
+  width: 150px;
+  height: 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #b5b5b5;
+}
+
+.changePasswordButton:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+}
+
+.profileButtonsBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.editDataButton {
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 10px;
+  background-color: #b5b5b5;
+}
+
+.editDataButton:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+}
+
+.deleteProfileButton {
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 10px;
+  background-color: #b5b5b5;
+}
+
+.deleteProfileButton:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+}

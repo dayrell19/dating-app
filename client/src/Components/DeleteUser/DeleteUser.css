@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.duBlur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(200, 200, 200, 0.8);
+  z-index: -1;
+}
+
+.duContainer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+}
+
+.deleteUserContainer {
+  width: 500px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: #b5b5b5;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.duTop {
+  flex: 15%;
+}
+
+.duCloseIcon {
+  font-size: 30px;
+}
+
+.duCloseIcon:hover {
+  transform: scale(1.08);
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+}
+
+.duBottom {
+  flex: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.duSummary {
+  color: var(--datingApp-lightBlack);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.duButton {
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+}
+
+.duButton:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+}
