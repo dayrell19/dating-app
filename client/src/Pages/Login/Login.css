@@ -147,6 +147,7 @@
   padding: 0.5em 2em;
   border: 2px solid var(--datingApp-red);
   transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+  cursor: pointer;
 }
 .loginButton::before {
   content: "";
@@ -193,6 +194,7 @@
   font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
   color: var(--datingApp-white);
   font-size: 12px;
+  cursor: pointer;
 }
 
 .registerLink:hover {

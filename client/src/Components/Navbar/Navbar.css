@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=WindSong&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.navbarContainer {
+  width: 100vw;
+  height: 80px;
+  background-color: var(--datingApp-lightBlack);
+  display: flex;
+  flex-direction: row;
+}
+
+.navbarLeft {
+  flex: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbarHeader {
+  font-family: "WindSong", cursive;
+  font-size: 38px;
+  color: var(--datingApp-red);
+  cursor: pointer;
+}
+
+.navbarHeader:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+}
+
+.navbarRight {
+  flex: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbarGrid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  justify-content: end;
+  margin-right: 2rem;
+  height: 80px;
+  width: 70vw;
+}
+
+.navbarItem {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.navbarLinks {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+}
+
+.navbarLinks:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+}

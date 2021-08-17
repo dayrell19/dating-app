@@ -34,6 +34,7 @@
   color: var(--datingApp-white);
   padding-top: 15px;
   padding-left: 15px;
+  cursor: pointer;
 }
 
 .registerBackButton:hover {
@@ -186,6 +187,7 @@
   padding: 0.5em 2em;
   border: 2px solid var(--datingApp-red);
   transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+  cursor: pointer;
 }
 .registerButton::before {
   content: "";
