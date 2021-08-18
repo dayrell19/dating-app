@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Profile.css";
 import Axios from "axios";
+import { useHistory } from "react-router-dom";
 
 //Import components
 import Navbar from "../../Components/Navbar/Navbar";
@@ -16,11 +17,22 @@ const USER_DATA_DEFAULT = {
   gender: "",
 };
 
+const USER_DATA_UPDATE = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  username: "",
+  age: 0,
+  gender: "",
+};
+
 const Profile = () => {
   const [userData, setUserData] = useState(USER_DATA_DEFAULT);
-  const [userEdited, setUserEdited] = useState(USER_DATA_DEFAULT);
+  const [userEdited, setUserEdited] = useState(USER_DATA_UPDATE);
   const [editData, setEditData] = useState(false);
   const [deleteUser, setDeleteUser] = useState(false);
+
+  let history = useHistory();
 
   useEffect(() => {
     Axios.get("http://localhost:3002/user/profile", {
@@ -31,7 +43,25 @@ const Profile = () => {
   }, []);
 
   const updateUser = () => {
-    console.log(userEdited);
+    Axios.put(
+      "http://localhost:3002/user/update",
+      {
+        firstName: userEdited.firstName,
+        lastName: userEdited.lastName,
+        email: userEdited.email,
+        username: userEdited.username,
+        age: userEdited.age,
+        gender: userEdited.gender,
+      },
+      {
+        headers: { accessToken: localStorage.getItem("access-token") },
+      }
+    ).then((response) => {
+      console.log(response.data);
+      localStorage.setItem("access-token", response.data.token);
+      setEditData(false);
+      history.push("/profile");
+    });
   };
 
   return (

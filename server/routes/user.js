@@ -51,9 +51,27 @@ router.get("/profile", validateToken, async (req, res) => {
 
 router.delete("/delete", validateToken, async (req, res) => {
   const id = req.user.id;
-  users.destroy({ where: { id } });
+  await users.destroy({ where: { id } });
 
   res.send("User deleted successfuly!");
+});
+
+router.put("/update", validateToken, async (req, res) => {
+  const updatedUser = req.body;
+  console.log(updatedUser);
+  const id = req.user.id;
+  const user = await users.findOne({ where: { id } });
+
+  user.firstName = updatedUser.firstName;
+  user.lastName = updatedUser.lastName;
+  user.age = updatedUser.age;
+  user.gender = updatedUser.gender;
+  user.email = updatedUser.email;
+  user.username = updatedUser.username;
+
+  user.save();
+  const newToken = createTokens(user);
+  res.json({ token: newToken });
 });
 
 module.exports = router;

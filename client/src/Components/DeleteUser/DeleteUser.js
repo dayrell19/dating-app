@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./DeleteUser.css";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
