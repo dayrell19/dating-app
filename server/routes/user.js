@@ -49,4 +49,11 @@ router.get("/profile", validateToken, async (req, res) => {
   res.json(user);
 });
 
+router.delete("/delete", validateToken, async (req, res) => {
+  const id = req.user.id;
+  users.destroy({ where: { id } });
+
+  res.send("User deleted successfuly!");
+});
+
 module.exports = router;

@@ -8,7 +8,14 @@ import CloseIcon from "@material-ui/icons/Close";
 const DeleteUser = ({ setDeleteUser }) => {
   let history = useHistory();
 
-  const deleteUser = () => {};
+  const deleteUser = () => {
+    Axios.delete("http://localhost:3002/user/delete", {
+      headers: { accessToken: localStorage.getItem("access-token") },
+    }).then((response) => {
+      localStorage.removeItem("access-token");
+      history.push("/login");
+    });
+  };
   return (
     <div className="duContainer">
       <div className="deleteUserContainer">
