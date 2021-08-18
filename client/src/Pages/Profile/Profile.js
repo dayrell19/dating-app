@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 //Import components
 import Navbar from "../../Components/Navbar/Navbar";
 import DeleteUser from "../../Components/DeleteUser/DeleteUser";
+import UpdatePassword from "../../Components/UpdatePassword/UpdatePassword";
 
 const USER_DATA_DEFAULT = {
   firstName: "",
@@ -31,6 +32,7 @@ const Profile = () => {
   const [userEdited, setUserEdited] = useState(USER_DATA_UPDATE);
   const [editData, setEditData] = useState(false);
   const [deleteUser, setDeleteUser] = useState(false);
+  const [updatePassword, setUpdatePassword] = useState(false);
 
   let history = useHistory();
 
@@ -238,7 +240,12 @@ const Profile = () => {
                 <h3 className="profileData">Secured</h3>
               </div>
               <div className="passwordRight">
-                <button className="changePasswordButton">
+                <button
+                  className="changePasswordButton"
+                  onClick={() => {
+                    setUpdatePassword(true);
+                  }}
+                >
                   Change Password
                 </button>
               </div>
@@ -266,6 +273,9 @@ const Profile = () => {
         )}
       </div>
       {deleteUser && <DeleteUser setDeleteUser={setDeleteUser} />}
+      {updatePassword && (
+        <UpdatePassword setUpdatePassword={setUpdatePassword} />
+      )}
     </>
   );
 };
