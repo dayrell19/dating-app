@@ -58,7 +58,6 @@ router.delete("/delete", validateToken, async (req, res) => {
 
 router.put("/update", validateToken, async (req, res) => {
   const updatedUser = req.body;
-  console.log(updatedUser);
   const id = req.user.id;
   const user = await users.findOne({ where: { id } });
 
@@ -72,6 +71,20 @@ router.put("/update", validateToken, async (req, res) => {
   user.save();
   const newToken = createTokens(user);
   res.json({ token: newToken });
+});
+
+router.put("/password", validateToken, async (req, res) => {
+  const updatedPassword = req.body;
+  console.log(updatedPassword);
+  const id = req.user.id;
+  const user = await users.findOne({ where: { id } });
+
+  bcrypt.hash(updatedPassword.password, 10).then((hash) => {
+    user.password = hash;
+    user.save();
+  });
+
+  res.send("Password updated!");
 });
 
 module.exports = router;
