@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { users } = require("../models");
+const { users, preferences } = require("../models");
 
 const bcrypt = require("bcrypt");
 const { createTokens, validateToken } = require("../auth/jwt");
@@ -11,7 +11,18 @@ router.post("/", (req, res) => {
   bcrypt.hash(user.password, 10).then((hash) => {
     users
       .create({ ...user, password: hash })
-      .then(() => {
+      .then((user) => {
+        preferences.create({
+          minAge: user.age - 5 < 18 ? 18 : user.age - 5,
+          maxAge: Number(user.age) + 5,
+          gender:
+            user.gender == "male"
+              ? "female"
+              : user.gender == "female"
+              ? "male"
+              : "both",
+          userId: user.id,
+        });
         res.json(data);
       })
       .catch((error) => {
@@ -49,8 +60,18 @@ router.get("/profile", validateToken, async (req, res) => {
   res.json(user);
 });
 
+router.get("/all", validateToken, async (req, res) => {
+  const user = await users.findOne({ where: { username: req.user.username } });
+  const userPreferences = await preferences.findOne({
+    where: { userId: user.id },
+  });
+
+  res.json({ user, userPreferences });
+});
+
 router.delete("/delete", validateToken, async (req, res) => {
   const id = req.user.id;
+  preferences.destroy({ where: { userId: id } });
   await users.destroy({ where: { id } });
 
   res.send("User deleted successfuly!");

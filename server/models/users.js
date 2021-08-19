@@ -58,5 +58,9 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
+  users.associate = (models) => {
+    users.hasOne(models.preferences);
+  };
+
   return users;
 };

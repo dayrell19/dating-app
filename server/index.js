@@ -9,11 +9,13 @@ app.use(express.json());
 
 const db = require("./models");
 
-const { users } = require("./models");
+const { users, preferences } = require("./models");
 
 const userRoute = require("./routes/user");
+const preferencesRoute = require("./routes/preferences");
 
 app.use("/user", userRoute);
+app.use("/preferences", preferencesRoute);
 
 db.sequelize.sync().then((req) => {
   app.listen(PORT, () => {
