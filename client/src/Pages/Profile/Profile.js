@@ -116,7 +116,7 @@ const Profile = () => {
 
             <div className="editGenderRegisterInput">
               <h3 className="profileLabel">Gender:</h3>
-              <label for="femaleOP" className="editGenderLabel">
+              <label htmlFor="femaleOP" className="editGenderLabel">
                 <input
                   type="radio"
                   id="femaleOP"
@@ -132,7 +132,7 @@ const Profile = () => {
                 <span>Female</span>
               </label>
 
-              <label for="maleOP" className="editGenderLabel">
+              <label htmlFor="maleOP" className="editGenderLabel">
                 <input
                   type="radio"
                   id="maleOP"
@@ -148,7 +148,7 @@ const Profile = () => {
                 <span>Male</span>
               </label>
 
-              <label for="otherOP" className="editGenderLabel">
+              <label htmlFor="otherOP" className="editGenderLabel">
                 <input
                   type="radio"
                   id="otherOP"

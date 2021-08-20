@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Preferences.css";
 import Axios from "axios";
+import { useHistory } from "react-router-dom";
 
 import Navbar from "../../Components/Navbar/Navbar";
 import AgeSlider from "../../Components/AgeSlider/AgeSlider";
@@ -16,6 +17,8 @@ const USER_PREFERENCES_DEFAULT = {
 const Preferences = () => {
   const [preferences, setPreferences] = useState(USER_PREFERENCES_DEFAULT);
 
+  let history = useHistory();
+
   useEffect(() => {
     Axios.get("http://localhost:3002/preferences/", {
       headers: { accessToken: localStorage.getItem("access-token") },
@@ -27,7 +30,21 @@ const Preferences = () => {
   }, []);
 
   const updatePreferences = () => {
-    console.log(preferences);
+    Axios.put(
+      "http://localhost:3002/preferences/update",
+      {
+        minAge: preferences.minAge,
+        maxAge: preferences.maxAge,
+        gender: preferences.gender,
+      },
+      {
+        headers: { accessToken: localStorage.getItem("access-token") },
+      }
+    ).then((response) => {
+      console.log(response.data);
+
+      history.push("/preferences");
+    });
   };
 
   return (
@@ -48,7 +65,7 @@ const Preferences = () => {
             <div className="preferencesBottom">
               <div className="editGenderPreference">
                 <h3 className="preferenceLabel">Gender:</h3>
-                <label for="femaleOP" className="editGenderLabel">
+                <label htmlFor="femaleOP" className="editGenderLabel">
                   <input
                     type="radio"
                     id="femaleOP"
@@ -64,7 +81,7 @@ const Preferences = () => {
                   <span>Female</span>
                 </label>
 
-                <label for="maleOP" className="editGenderLabel">
+                <label htmlFor="maleOP" className="editGenderLabel">
                   <input
                     type="radio"
                     id="maleOP"
@@ -80,10 +97,10 @@ const Preferences = () => {
                   <span>Male</span>
                 </label>
 
-                <label for="bothOP" className="editGenderLabel">
+                <label htmlFor="bothOP" className="editGenderLabel">
                   <input
                     type="radio"
-                    id="otherOP"
+                    id="bothOP"
                     name="selector"
                     tabIndex="3"
                     onClick={() => {
@@ -103,6 +120,7 @@ const Preferences = () => {
                   <AgeSlider
                     min={preferences.minAge}
                     max={preferences.maxAge}
+                    setPreferences={setPreferences}
                   />
                 </div>
               </div>

@@ -170,7 +170,7 @@ const Register = () => {
           </div>
 
           <div className="genderRegisterInput">
-            <label for="femaleOP" className="genderLabel">
+            <label htmlFor="femaleOP" className="genderLabel">
               <input
                 type="radio"
                 id="femaleOP"
@@ -186,7 +186,7 @@ const Register = () => {
               <span>Female</span>
             </label>
 
-            <label for="maleOP" className="genderLabel">
+            <label htmlFor="maleOP" className="genderLabel">
               <input
                 type="radio"
                 id="maleOP"
@@ -202,7 +202,7 @@ const Register = () => {
               <span>Male</span>
             </label>
 
-            <label for="otherOP" className="genderLabel">
+            <label htmlFor="otherOP" className="genderLabel">
               <input
                 type="radio"
                 id="otherOP"

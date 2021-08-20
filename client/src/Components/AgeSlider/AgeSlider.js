@@ -12,12 +12,17 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-const AgeSlider = ({ min, max }) => {
+const AgeSlider = ({ min, max, setPreferences }) => {
   const classes = useStyles();
   const [value, setValue] = React.useState([min, max]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    setPreferences((currentData) => ({
+      ...currentData,
+      minAge: newValue[0],
+      maxAge: newValue[1],
+    }));
   };
 
   return (

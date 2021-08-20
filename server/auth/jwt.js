@@ -10,8 +10,6 @@ const createTokens = (user) => {
 const validateToken = (req, res, next) => {
   const accessToken = req.headers.accesstoken;
 
-  console.log(accessToken);
-
   if (!accessToken)
     return res.status(400).json({ error: "User not authenticated" });
 

@@ -14,4 +14,19 @@ router.get("/", validateToken, async (req, res) => {
   res.json(userPreferences);
 });
 
+router.put("/update", validateToken, async (req, res) => {
+  const updatedPrefences = req.body;
+  const id = req.user.id;
+  const userPreferences = await preferences.findOne({ where: { userId: id } });
+
+  userPreferences.minAge = updatedPrefences.minAge;
+  userPreferences.maxAge = updatedPrefences.maxAge;
+  userPreferences.gender = updatedPrefences.gender;
+
+  console.log(userPreferences);
+
+  userPreferences.save();
+  res.send("Preferences Updated");
+});
+
 module.exports = router;
