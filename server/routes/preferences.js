@@ -11,8 +11,6 @@ router.get("/", validateToken, async (req, res) => {
     where: { userId: user.id },
   });
 
-  console.log(user);
-
   res.json(userPreferences);
 });
 
