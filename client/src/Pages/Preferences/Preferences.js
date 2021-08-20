@@ -71,6 +71,7 @@ const Preferences = () => {
                     id="femaleOP"
                     name="selector"
                     tabIndex="1"
+                    checked={preferences.gender === "female"}
                     onClick={() => {
                       setPreferences((currentData) => ({
                         ...currentData,
@@ -87,6 +88,7 @@ const Preferences = () => {
                     id="maleOP"
                     name="selector"
                     tabIndex="2"
+                    checked={preferences.gender === "male"}
                     onClick={() => {
                       setPreferences((currentData) => ({
                         ...currentData,
@@ -103,6 +105,7 @@ const Preferences = () => {
                     id="bothOP"
                     name="selector"
                     tabIndex="3"
+                    checked={preferences.gender === "both"}
                     onClick={() => {
                       setPreferences((currentData) => ({
                         ...currentData,
