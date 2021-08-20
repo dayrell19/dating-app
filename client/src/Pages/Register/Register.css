@@ -53,6 +53,7 @@
   color: var(--datingApp-white);
   align-self: center;
   font-size: 38px;
+  margin: 0px;
 }
 
 .registerInput {
@@ -167,6 +168,43 @@
   display: inline-block;
   line-height: 20px;
   padding: 0 8px;
+}
+
+.registerProfilePicture {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.registerPictureLabel {
+  font-size: 1.2rem;
+  color: var(--datingApp-white);
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.profilePictureLabel {
+  color: var(--datingApp-white);
+  height: 30px;
+  width: 160px;
+  background-color: var(--datingApp-lightBlack);
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilePictureLabel:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+  color: var(--datingApp-red);
 }
 
 .registerButton {

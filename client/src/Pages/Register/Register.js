@@ -6,6 +6,7 @@ import Axios from "axios";
 
 //import materials ui icon
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import PublishIcon from "@material-ui/icons/Publish";
 
 const GENDER = {
   Male: "male",
@@ -21,24 +22,37 @@ const REGISTER_DATA_DEFAULT = {
   Password: "",
   Age: 0,
   Gender: GENDER.Other,
+  Image: "",
 };
 
 const Register = () => {
   let history = useHistory();
 
   const [registerData, setRegisterData] = useState(REGISTER_DATA_DEFAULT);
+  const [image, setImage] = useState("");
 
-  const CreateUser = () => {
-    Axios.post("http://localhost:3002/user/", {
-      firstName: registerData.FirstName,
-      lastName: registerData.LastName,
-      email: registerData.Email,
-      username: registerData.Username,
-      password: registerData.Password,
-      age: registerData.Age,
-      gender: registerData.Gender,
-    }).then(() => {
-      history.push("/login");
+  const CreateUser = async () => {
+    const formData = new FormData();
+    formData.append("file", image[0]);
+    formData.append("upload_preset", "kp5hnahq");
+
+    Axios.post(
+      "https://api.cloudinary.com/v1_1/dayrell19/image/upload",
+      formData
+    ).then((response) => {
+      console.log(registerData);
+      Axios.post("http://localhost:3002/user/", {
+        firstName: registerData.FirstName,
+        lastName: registerData.LastName,
+        email: registerData.Email,
+        username: registerData.Username,
+        password: registerData.Password,
+        age: registerData.Age,
+        gender: registerData.Gender,
+        image: response.data.url,
+      }).then(() => {
+        history.push("/login");
+      });
     });
   };
 
@@ -216,6 +230,24 @@ const Register = () => {
                 }}
               />
               <span>Other</span>
+            </label>
+          </div>
+
+          <div className="registerProfilePicture">
+            <h3 className="registerPictureLabel">Profile Picture:</h3>
+            <input
+              type="file"
+              name="file"
+              id="file"
+              accept="image/*"
+              class="inputfile"
+              onChange={(event) => {
+                setImage(event.target.files);
+              }}
+            />
+            <label className="profilePictureLabel" for="file">
+              <PublishIcon />
+              Choose a photo
             </label>
           </div>
 
