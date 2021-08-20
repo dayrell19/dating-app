@@ -12,7 +12,7 @@
 .profileDataContainer {
   display: flex;
   flex-direction: column;
-  height: 550px;
+  height: 600px;
   width: 500px;
   background-color: var(--datingApp-white);
   border-radius: 12px;
@@ -228,4 +228,52 @@
 .updateDataButton:hover {
   transform: scale(1.03);
   transition: 0.2s all ease-in-out;
+}
+
+.profilePictureContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.profilePicture {
+  height: 150px;
+  border-radius: 10px;
+}
+
+.editProfilePicture {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  padding-left: 25px;
+}
+
+.profilePictureLabel2 {
+  font-size: 1.2rem;
+  color: var(--datingApp-lightBlack);
+  font-weight: 500;
+  margin-right: 5px;
+  background-color: var(--datingApp-white);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.profilePagePictureLabel {
+  color: var(--datingApp-lightBlack);
+  height: 30px;
+  width: 160px;
+  background-color: var(--datingApp-white);
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilePagePictureLabel:hover {
+  transform: scale(1.03);
+  transition: 0.2s all ease-in-out;
+  color: var(--datingApp-red);
 }

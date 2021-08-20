@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./Profile.css";
 import Axios from "axios";
+import { Image } from "cloudinary-react";
 import { useHistory } from "react-router-dom";
 
 //Import components
 import Navbar from "../../Components/Navbar/Navbar";
 import DeleteUser from "../../Components/DeleteUser/DeleteUser";
 import UpdatePassword from "../../Components/UpdatePassword/UpdatePassword";
+import PublishIcon from "@material-ui/icons/Publish";
 
 const USER_DATA_DEFAULT = {
   firstName: "",
@@ -16,6 +18,7 @@ const USER_DATA_DEFAULT = {
   password: "",
   age: 0,
   gender: "",
+  image: "",
 };
 
 const USER_DATA_UPDATE = {
@@ -25,6 +28,7 @@ const USER_DATA_UPDATE = {
   username: "",
   age: 0,
   gender: "",
+  image: "",
 };
 
 const Profile = () => {
@@ -33,6 +37,7 @@ const Profile = () => {
   const [editData, setEditData] = useState(false);
   const [deleteUser, setDeleteUser] = useState(false);
   const [updatePassword, setUpdatePassword] = useState(false);
+  const [image, setImage] = useState("");
 
   let history = useHistory();
 
@@ -41,28 +46,40 @@ const Profile = () => {
       headers: { accessToken: localStorage.getItem("access-token") },
     }).then((response) => {
       setUserData(response.data);
+      console.log(response.data);
     });
   }, []);
 
   const updateUser = () => {
-    Axios.put(
-      "http://localhost:3002/user/update",
-      {
-        firstName: userEdited.firstName,
-        lastName: userEdited.lastName,
-        email: userEdited.email,
-        username: userEdited.username,
-        age: userEdited.age,
-        gender: userEdited.gender,
-      },
-      {
-        headers: { accessToken: localStorage.getItem("access-token") },
-      }
+    const formData = new FormData();
+    formData.append("file", image[0]);
+    formData.append("upload_preset", "kp5hnahq");
+
+    Axios.post(
+      "https://api.cloudinary.com/v1_1/dayrell19/image/upload",
+      formData
     ).then((response) => {
-      console.log(response.data);
-      localStorage.setItem("access-token", response.data.token);
-      setEditData(false);
-      history.push("/profile");
+      Axios.put(
+        "http://localhost:3002/user/update",
+        {
+          firstName: userEdited.firstName,
+          lastName: userEdited.lastName,
+          email: userEdited.email,
+          username: userEdited.username,
+          age: userEdited.age,
+          gender: userEdited.gender,
+          image: response.data.url,
+        },
+        {
+          headers: { accessToken: localStorage.getItem("access-token") },
+        }
+      ).then((response) => {
+        console.log(response.data);
+        localStorage.setItem("access-token", response.data.token);
+        setEditData(false);
+        history.push("/profile");
+        window.location.reload();
+      });
     });
   };
 
@@ -73,6 +90,23 @@ const Profile = () => {
         {editData ? (
           <div className="profileDataContainer">
             <h1 className="profileEditHeader">Your Profile</h1>
+            <div className="editProfilePicture">
+              <h3 className="profileLabel">Profile Picture:</h3>
+              <input
+                type="file"
+                name="file"
+                id="file"
+                accept="image/*"
+                class="inputfile"
+                onChange={(event) => {
+                  setImage(event.target.files);
+                }}
+              />
+              <label className="profilePagePictureLabel" for="file">
+                <PublishIcon />
+                Choose a photo
+              </label>
+            </div>
             <div className="infoEditContainer">
               <h3 className="profileLabel">Name:</h3>
               <input
@@ -208,6 +242,13 @@ const Profile = () => {
         ) : (
           <div className="profileDataContainer">
             <h1 className="profileHeader">Your Profile</h1>
+            <div className="profilePictureContainer">
+              <Image
+                className="profilePicture"
+                cloudName="dayrell19"
+                publicId={userData.image}
+              />
+            </div>
             <div className="infoContainer">
               <h3 className="profileLabel">Name:</h3>
               <h3 className="profileData">{userData.firstName}</h3>
