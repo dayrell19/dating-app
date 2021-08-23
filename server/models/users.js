@@ -64,6 +64,11 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
+
+    bio: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   });
 
   users.associate = (models) => {

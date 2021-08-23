@@ -19,6 +19,7 @@ const USER_DATA_DEFAULT = {
   age: 0,
   gender: "",
   image: "",
+  bio: "",
 };
 
 const USER_DATA_UPDATE = {
@@ -29,6 +30,7 @@ const USER_DATA_UPDATE = {
   age: 0,
   gender: "",
   image: "",
+  bio: "",
 };
 
 const Profile = () => {
@@ -69,6 +71,7 @@ const Profile = () => {
           age: userEdited.age,
           gender: userEdited.gender,
           image: response.data.url,
+          bio: userEdited.bio,
         },
         {
           headers: { accessToken: localStorage.getItem("access-token") },
@@ -229,6 +232,21 @@ const Profile = () => {
               />
             </div>
 
+            <div className="bioEditContainer">
+              <h3 className="profileBioLabel">Bio:</h3>
+              <textarea
+                className="profileBioInput"
+                placeholder={userData.bio}
+                type="text"
+                onChange={(event) => {
+                  setUserEdited((currentData) => ({
+                    ...currentData,
+                    bio: event.target.value,
+                  }));
+                }}
+              />
+            </div>
+
             <h3 className="editProfileBottomLabel">
               The password cannot be eddited in this page
             </h3>
@@ -273,6 +291,15 @@ const Profile = () => {
             <div className="infoContainer">
               <h3 className="profileLabel">Username:</h3>
               <h3 className="profileData">{userData.username}</h3>
+            </div>
+
+            <div className="infoContainer">
+              <h3 className="profileLabel">Bio:</h3>
+              <h3 className="profileData">
+                {userData.bio
+                  ? "Click on 'Edit your Info' to change"
+                  : "You don't have a bio yet"}
+              </h3>
             </div>
 
             <div className="passwordContainer">

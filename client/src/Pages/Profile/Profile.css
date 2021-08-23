@@ -12,7 +12,7 @@
 .profileDataContainer {
   display: flex;
   flex-direction: column;
-  height: 600px;
+  height: 650px;
   width: 500px;
   background-color: var(--datingApp-white);
   border-radius: 12px;
@@ -276,4 +276,29 @@ input[type="file"] {
   transform: scale(1.03);
   transition: 0.2s all ease-in-out;
   color: var(--datingApp-red);
+}
+
+.bioEditContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 120px;
+  margin-bottom: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.profileBioLabel {
+  font-weight: 500;
+  display: flex;
+  margin: 0px 0px 0px 25px;
+  padding: 0;
+}
+
+.profileBioInput {
+  width: 80%;
+  height: 60px;
+  display: flex;
+  align-self: center;
 }
