@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.mainSliderContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 550px;
+  border: none;
+  margin-top: 0;
+}
+
+.backButtonContainer {
+  flex: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backButton {
+  border: 1px red solid;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: scale(1.3);
+}
+
+.backButton:hover {
+  transform: scale(1.25);
+  transition: 0.2s all ease-in-out;
+}
+
+.individualCard {
+  flex: 70%;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--datingApp-white);
+  border-radius: 18px;
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+}
+
+.cardLeft {
+  flex: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.cardRight {
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.personName {
+  display: flex;
+  align-self: center;
+}
+
+.personAgeContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 25px;
+}
+
+.personCardLabel {
+  font-size: 22px;
+  font-weight: 400;
+  margin-right: 6px;
+}
+
+.personDetails {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.personBioContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin-left: 25px;
+  height: 300px;
+}
+
+.personBioLabel {
+  font-size: 22px;
+  font-weight: 400;
+  align-self: flex-start;
+}
+
+.personBio {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.forwardButtonContainer {
+  flex: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forwardButton {
+  border: 1px red solid;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: scale(1.3);
+}
+
+.forwardButton:hover {
+  transform: scale(1.25);
+  transition: 0.2s all ease-in-out;
+}

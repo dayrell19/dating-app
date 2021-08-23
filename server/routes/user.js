@@ -88,6 +88,7 @@ router.put("/update", validateToken, async (req, res) => {
   user.gender = updatedUser.gender;
   user.email = updatedUser.email;
   user.username = updatedUser.username;
+  user.image = updatedUser.image;
 
   user.save();
   const newToken = createTokens(user);

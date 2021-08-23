@@ -40,7 +40,7 @@ const Login = () => {
         <div className="loginContainerRight">
           <div className="inputsContainer">
             <h1 className="loginHeader">Login Here!</h1>
-            <h2 className="loginSubheader">The best dating website!</h2>
+            <h2 className="loginSubheader">The best dating website</h2>
 
             <div className="individualLoginInput">
               <input

@@ -4,6 +4,7 @@ import Axios from "axios";
 
 //Import Components
 import Navbar from "../../Components/Navbar/Navbar";
+import Carousel from "../../Components/Carousel/Carousel";
 
 const Main = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const Main = () => {
   return (
     <div className="mainContainer">
       <Navbar />
+      <Carousel />
     </div>
   );
 };
