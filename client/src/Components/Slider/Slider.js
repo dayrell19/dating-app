@@ -7,10 +7,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
 import ImageBabs from "../../Assets/Images/babs.jpg";
-// import ImageLeo from "../../Assets/Images/leo.jpg";
-// import ImageBella from "../../Assets/Images/bella.jpg";
 import ImagePedro from "../../Assets/Images/pedro.jpg";
-// import ImageAngela from "../../Assets/Images/angela.jpg";
 import ImageOlga from "../../Assets/Images/Olga.jpg";
 
 const images = [

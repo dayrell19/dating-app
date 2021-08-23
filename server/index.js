@@ -13,9 +13,11 @@ const { users, preferences } = require("./models");
 
 const userRoute = require("./routes/user");
 const preferencesRoute = require("./routes/preferences");
+const matchesRoute = require("./routes/matches");
 
 app.use("/user", userRoute);
 app.use("/preferences", preferencesRoute);
+app.use("/matches", matchesRoute);
 
 db.sequelize.sync().then((req) => {
   app.listen(PORT, () => {
