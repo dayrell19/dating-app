@@ -3,6 +3,8 @@ import "./Slider.css";
 
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
 import ImageBabs from "../../Assets/Images/babs.jpg";
 // import ImageLeo from "../../Assets/Images/leo.jpg";
@@ -19,6 +21,8 @@ const images = [
 
 const Slider = () => {
   const [index, setIndex] = useState(0);
+  const [likeButton, setLikeButton] = useState(true);
+
   return (
     <div className="mainSliderContainer">
       <div
@@ -52,6 +56,23 @@ const Slider = () => {
               tenetur error, harum nesciunt ipsum debitis quas aliquid.
               Reprehenderit, quia.
             </p>
+          </div>
+          <div className="matchButtonContainer">
+            <div
+              className={likeButton ? "heartButton" : "heartButtonAct"}
+              onClick={() => {
+                setLikeButton(!likeButton);
+              }}
+            >
+              <div className="buttonContent">
+                {likeButton ? (
+                  <FavoriteBorderIcon className="heart" />
+                ) : (
+                  <FavoriteIcon className="heartAct" />
+                )}
+                <span className={likeButton ? "like" : "likeAct"}>Like</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

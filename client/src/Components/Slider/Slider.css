@@ -83,6 +83,7 @@
   align-items: center;
   margin-left: 25px;
   height: 300px;
+  overflow-y: hidden;
 }
 
 .personBioLabel {
@@ -94,6 +95,60 @@
 .personBio {
   font-size: 18px;
   font-weight: 400;
+}
+
+.matchButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.buttonContent {
+  border: 2px solid red;
+  padding: 10px 10px;
+  padding-left: 0;
+  border-radius: 5px;
+  display: flex;
+  cursor: pointer;
+  height: 30px;
+  width: 100px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonContent .heart {
+  display: flex;
+  transform: scale(1.3);
+  margin-left: 10px;
+  margin-right: 10px;
+  color: red;
+}
+
+.heartAct {
+  display: flex;
+  transform: scale(1.3);
+  margin-left: 10px;
+  margin-right: 10px;
+  color: red;
+}
+
+.heartButtonAct {
+  border-color: #f9b9c4;
+  background-color: #fbd0d8;
+}
+
+.like {
+  font-size: 21px;
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  color: grey;
+}
+
+.likeAct {
+  font-size: 21px;
+  font-family: "Encode Sans Sc", Arial, Helvetica, sans-serif;
+  color: #000;
 }
 
 .forwardButtonContainer {
