@@ -43,7 +43,7 @@ const Preferences = () => {
     ).then((response) => {
       console.log(response.data);
 
-      history.push("/preferences");
+      history.push("/mainpage");
     });
   };
 

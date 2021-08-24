@@ -4,6 +4,7 @@ const router = express.Router();
 const { users, preferences } = require("../models");
 
 const { validateToken } = require("../auth/jwt");
+const { Op } = require("sequelize");
 
 router.get("/", validateToken, async (req, res) => {
   const id = req.user.id;
@@ -22,6 +23,7 @@ router.get("/", validateToken, async (req, res) => {
       [Op.and]: [
         { [Op.or]: genderPrefs },
         { age: { [Op.between]: [prefs.minAge, prefs.maxAge] } },
+        { id: { [Op.ne]: id } },
       ],
     },
   });
