@@ -9,7 +9,7 @@ app.use(express.json());
 
 const db = require("./models");
 
-const { users, preferences } = require("./models");
+const { users, preferences, matches } = require("./models");
 
 const userRoute = require("./routes/user");
 const preferencesRoute = require("./routes/preferences");

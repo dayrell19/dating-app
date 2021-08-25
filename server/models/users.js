@@ -75,5 +75,9 @@ module.exports = (sequelize, DataTypes) => {
     users.hasOne(models.preferences);
   };
 
+  users.associate = (models) => {
+    users.hasOne(models.match);
+  };
+
   return users;
 };
